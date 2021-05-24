@@ -3,7 +3,6 @@ import { RenderingTestCase, moduleFor, runDestroy, runTask } from 'internal-test
 import { EMBER_MODERNIZED_BUILT_IN_COMPONENTS } from '@ember/canary-features';
 import { action } from '@ember/object';
 import { set } from '@ember/-internals/metal';
-import { jQueryDisabled, jQuery } from '@ember/-internals/views';
 
 import { Component } from '../../utils/helpers';
 
@@ -393,13 +392,8 @@ moduleFor(
       expectDeprecation(() => {
         this.render(`{{input enter='foo'}}`, {
           actions: {
-            foo(value, event) {
+            foo() {
               assert.ok(true, 'action was triggered');
-              if (jQueryDisabled) {
-                assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-              } else {
-                assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-              }
             },
           },
         });
@@ -417,13 +411,8 @@ moduleFor(
 
       this.render(`{{input enter=(action 'foo')}}`, {
         actions: {
-          foo(value, event) {
+          foo() {
             assert.ok(true, 'action was triggered');
-            if (jQueryDisabled) {
-              assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-            } else {
-              assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-            }
           },
         },
       });
@@ -441,13 +430,8 @@ moduleFor(
           value: 'initial',
 
           actions: {
-            foo(value, event) {
+            foo() {
               assert.ok(true, 'action was triggered');
-              if (jQueryDisabled) {
-                assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-              } else {
-                assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-              }
             },
           },
         });
@@ -467,14 +451,9 @@ moduleFor(
             value: 'initial',
 
             actions: {
-              foo(value, event) {
+              foo() {
                 triggered++;
                 assert.ok(true, 'action was triggered');
-                if (jQueryDisabled) {
-                  assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-                } else {
-                  assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-                }
               },
             },
           });
@@ -542,13 +521,8 @@ moduleFor(
 
       this.render(`{{input insert-newline=(action 'foo')}}`, {
         actions: {
-          foo(value, event) {
+          foo() {
             assert.ok(true, 'action was triggered');
-            if (jQueryDisabled) {
-              assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-            } else {
-              assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-            }
           },
         },
       });
@@ -566,13 +540,8 @@ moduleFor(
       expectDeprecation(() => {
         this.render(`{{input escape-press='foo'}}`, {
           actions: {
-            foo(value, event) {
+            foo() {
               assert.ok(true, 'action was triggered');
-              if (jQueryDisabled) {
-                assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-              } else {
-                assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-              }
             },
           },
         });
@@ -590,13 +559,8 @@ moduleFor(
 
       this.render(`{{input escape-press=(action 'foo')}}`, {
         actions: {
-          foo(value, event) {
+          foo() {
             assert.ok(true, 'action was triggered');
-            if (jQueryDisabled) {
-              assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-            } else {
-              assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-            }
           },
         },
       });
@@ -612,13 +576,8 @@ moduleFor(
       expectDeprecation(() => {
         this.render(`{{input key-down='foo'}}`, {
           actions: {
-            foo(value, event) {
+            foo() {
               assert.ok(true, 'action was triggered');
-              if (jQueryDisabled) {
-                assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-              } else {
-                assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-              }
             },
           },
         });
@@ -638,14 +597,9 @@ moduleFor(
         () => {
           this.render(`{{input key-down=(action 'foo')}}`, {
             actions: {
-              foo(value, event) {
+              foo() {
                 triggered++;
                 assert.ok(true, 'action was triggered');
-                if (jQueryDisabled) {
-                  assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-                } else {
-                  assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-                }
               },
             },
           });
@@ -667,13 +621,8 @@ moduleFor(
       expectDeprecation(() => {
         this.render(`{{input key-up='foo'}}`, {
           actions: {
-            foo(value, event) {
+            foo() {
               assert.ok(true, 'action was triggered');
-              if (jQueryDisabled) {
-                assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-              } else {
-                assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-              }
             },
           },
         });
@@ -689,13 +638,8 @@ moduleFor(
         () => {
           this.render(`{{input key-up=(action 'foo')}}`, {
             actions: {
-              foo(value, event) {
+              foo() {
                 assert.ok(true, 'action was triggered');
-                if (jQueryDisabled) {
-                  assert.notOk(event.originalEvent, 'event is not a jQuery.Event');
-                } else {
-                  assert.ok(event instanceof jQuery.Event, 'jQuery event was passed');
-                }
               },
             },
           });
