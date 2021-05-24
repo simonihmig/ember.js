@@ -557,7 +557,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `<Input @enter="foo" />` when <enter> is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`<Input @enter="foo" />`, {
@@ -577,7 +577,7 @@ moduleFor(
     ['@test sends an action with `<Input @enter={{action "foo"}} />` when <enter> is pressed'](
       assert
     ) {
-      assert.expect(2);
+      assert.expect(1);
 
       this.render(`<Input @enter={{action 'foo'}} />`, {
         actions: {
@@ -593,7 +593,7 @@ moduleFor(
     }
 
     ['@test [DEPRECATED] sends an action with `<Input @key-press="foo" />` is pressed'](assert) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`<Input @value={{this.value}} @key-press='foo' />`, {
@@ -687,7 +687,7 @@ moduleFor(
     }
 
     ['@test sends `insert-newline` when <enter> is pressed'](assert) {
-      assert.expect(2);
+      assert.expect(1);
 
       this.render(`<Input @insert-newline={{action 'foo'}} />`, {
         actions: {
@@ -705,7 +705,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `<Input @escape-press="foo" />` when <escape> is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`<Input @escape-press='foo' />`, {
@@ -725,7 +725,7 @@ moduleFor(
     ['@test sends an action with `<Input @escape-press={{action "foo"}} />` when <escape> is pressed'](
       assert
     ) {
-      assert.expect(2);
+      assert.expect(1);
 
       this.render(`<Input @escape-press={{action 'foo'}} />`, {
         actions: {
@@ -741,7 +741,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `<Input @key-down="foo" />` when a key is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`<Input @key-down='foo' />`, {
@@ -786,7 +786,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `<Input @key-up="foo" />` when a key is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`<Input @key-up='foo' />`, {

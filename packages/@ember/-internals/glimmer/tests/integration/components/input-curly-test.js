@@ -387,7 +387,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `{{input enter="foo"}}` when <enter> is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`{{input enter='foo'}}`, {
@@ -407,7 +407,7 @@ moduleFor(
     ['@test sends an action with `{{input enter=(action "foo")}}` when <enter> is pressed'](
       assert
     ) {
-      assert.expect(2);
+      assert.expect(1);
 
       this.render(`{{input enter=(action 'foo')}}`, {
         actions: {
@@ -423,7 +423,7 @@ moduleFor(
     }
 
     ['@test [DEPRECATED] sends an action with `{{input key-press="foo"}}` is pressed'](assert) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`{{input value=this.value key-press='foo'}}`, {
@@ -517,7 +517,7 @@ moduleFor(
     }
 
     ['@test sends `insert-newline` when <enter> is pressed'](assert) {
-      assert.expect(2);
+      assert.expect(1);
 
       this.render(`{{input insert-newline=(action 'foo')}}`, {
         actions: {
@@ -535,7 +535,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `{{input escape-press="foo"}}` when <escape> is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`{{input escape-press='foo'}}`, {
@@ -555,7 +555,7 @@ moduleFor(
     ['@test sends an action with `{{input escape-press=(action "foo")}}` when <escape> is pressed'](
       assert
     ) {
-      assert.expect(2);
+      assert.expect(1);
 
       this.render(`{{input escape-press=(action 'foo')}}`, {
         actions: {
@@ -571,7 +571,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `{{input key-down="foo"}}` when a key is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`{{input key-down='foo'}}`, {
@@ -616,7 +616,7 @@ moduleFor(
     ['@test [DEPRECATED] sends an action with `{{input key-up="foo"}}` when a key is pressed'](
       assert
     ) {
-      assert.expect(4);
+      assert.expect(3);
 
       expectDeprecation(() => {
         this.render(`{{input key-up='foo'}}`, {
